@@ -7,7 +7,7 @@ const MainPageRobot = () => {
   return (
     <MainContainer id={"main"}>
       <MainBg>
-        <Spline scene="https://prod.spline.design/xKNYSZ0rppZ32iAA/scene.splinecode" />
+      <Spline scene="https://prod.spline.design/seOvjg8OCrZwF2Mh/scene.splinecode" />
       </MainBg>
       <MainContent>
         <TypeContent>
@@ -39,7 +39,7 @@ const MainPageRobot = () => {
 export default MainPageRobot;
 
 const MainContainer = styled.div`
-  background: #0c0c0c;
+  background: #0b0b25;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,19 +50,18 @@ const MainContainer = styled.div`
 `;
 const MainBg = styled.div`
   position: absolute;
-  top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background-color: #0b0b25;
 `;
 
 const MainContent = styled.div`
   font-weight: bold;
   z-index: 3;
-  max-width: 800px;
+  max-width: 700px;
   position: absolute;
   padding-top: 200px;
   padding-right: 100px;
@@ -77,6 +76,6 @@ const TypeContent = styled.div`
     font-size: 30px;
   }
   @media screen and (max-width: 780px) {
-    font-size: 30px;
+    font-size: 20px;
   }
 `;
