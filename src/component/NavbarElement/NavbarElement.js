@@ -50,7 +50,7 @@ export default function NavbarElement() {
     
   }, []);
   return (
-    <nav className="navbar navbar-expand-lg navbar-mainbg" style={{width: "100%" , height:"65px"}}>
+    <nav className="navbar navbar-expand-lg navbar-mainbg" style={{width: "100%" , height:"63px"}}>
         <NavLink className="navbar-brand navbar-logo" to="/" >
            <Img src={Logo}/>
         </NavLink>
