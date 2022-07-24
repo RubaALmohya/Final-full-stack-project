@@ -50,13 +50,13 @@ export default function NavbarElement() {
     
   }, []);
   return (
-    <nav className="navbar navbar-expand-lg navbar-mainbg" style={{width: "100%" , height:"65px"}}>
+    <nav className="navbar navbar-expand-lg navbar-mainbg" style={{width: "100%" , height:"65px" }}>
         <NavLink className="navbar-brand navbar-logo" to="/" >
            <Img src={Logo}/>
         </NavLink>
 
         <button 
-        className="navbar-toggler " style={{width:"6%" , marginLeft:"70px" , backgroundColor:"#264871" , marginTop:"-10px"}}
+        className="navbar-toggler " style={{width:"6%" , marginLeft:"64px" , backgroundColor:"#264871" , marginTop:"-10px" , borderColor:"rgb(38, 72, 113)" }}
         onClick={ function(){
           setTimeout(function(){ animation(); });
         }}
