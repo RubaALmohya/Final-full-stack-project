@@ -2,8 +2,9 @@ import React from "react";
 import Spline from "@splinetool/react-spline";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const MainPageRobot = () => {
+const Home = () => {
   return (
     <MainContainer id={"main"}>
       <MainBg>
@@ -36,7 +37,7 @@ const MainPageRobot = () => {
   );
 };
 
-export default MainPageRobot;
+export default Home;
 
 const MainContainer = styled.div`
   background: #0b0b25;
