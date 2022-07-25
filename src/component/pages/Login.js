@@ -104,7 +104,7 @@ export default function Login() {
         setUsername("");
         setPassword("");
         localStorage.clear();
-        navigate("/MainPageRobot")
+        navigate("/Home")
         
       };
 

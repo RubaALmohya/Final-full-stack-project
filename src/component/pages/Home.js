@@ -2,6 +2,7 @@ import React from "react";
 import Spline from "@splinetool/react-spline";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const Home = () => {
   return (
