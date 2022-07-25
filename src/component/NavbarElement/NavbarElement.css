@@ -41,7 +41,9 @@ i {
   list-style-type: none;
   float: left;
 }
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400&display=swap');
 #navbarSupportedContent ul li a {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   color: white;
   text-decoration: none;
   font-size: 15px;
@@ -52,7 +54,7 @@ i {
   position: relative;
 }
 #navbarSupportedContent > ul > li.active > a {
-  color: rgba(245, 242, 242, 0.5);
+  color: rgb(255, 255, 255);
   background-color: transparent;
   transition: all 0.7s;
 }

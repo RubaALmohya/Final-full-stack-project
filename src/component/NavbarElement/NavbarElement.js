@@ -50,7 +50,10 @@ export default function NavbarElement() {
     
   }, []);
   return (
-    <nav className="navbar navbar-expand-lg navbar-mainbg" style={{width: "100%" , height:"65px" }}>
+
+    <nav className="navbar navbar-expand-lg navbar-mainbg" style={{width: "100%" , height:"63px" }}>
+
+    
         <NavLink className="navbar-brand navbar-logo" to="/" >
            <Img src={Logo}/>
         </NavLink>
@@ -91,13 +94,13 @@ export default function NavbarElement() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/testimonial" exact>
-               Testimonial
+              <NavLink className="nav-link" to="/ProfilePage" exact>
+               Profile
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/contact" exact>
-                Contact Us
+              <NavLink className="nav-link" to="/Login" exact>
+                Login
               </NavLink>
             </li>
         </ul>
