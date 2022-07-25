@@ -10,6 +10,7 @@ import Login from './component/pages/Login';
 import Footer from "./component/Footer";
 import NoPage from "./component/pages/NoPage";
 import About from "./component/pages/About";
+import MoodChangerContent from './component/pages/MoodChangerContent';
 
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path='/ProfilePage' element={<ProfilePage/>}> </Route>
           <Route path='/Login' element={<Login/>}> </Route>
           <Route path='/About' element={<About/>}> </Route>
+          <Route path='/MoodChanger' element={<MoodChangerContent/>}> </Route>
           <Route  path="*" element={<NoPage />}></Route>
         </Routes>
         <Footer/>
