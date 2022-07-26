@@ -18,15 +18,15 @@ const data = [
     return (
       <div>
         <Table>
-          <tr>
-            <th className='header'>Date</th>
-            <th className='emotion'>Emotion </th>
+          <tr className='center'>
+            <th className='dateHeader'>Date</th>
+            <th className='emotion'> Emotion </th>
             </tr>
           {data.map((val, key) => {
             return (
-              <tr key={key}>
-                <td>{val.user_moods_date}</td>
-                <td className='emotion'> <BsFillSquareFill color={val.user_moods.emotion_color}/></td>
+              <tr key={key} className='center'>
+                <td className='date'>{val.user_moods_date}</td>
+                <td className='emotion2'> <BsFillSquareFill color={val.user_moods.emotion_color}/></td>
               </tr>
             )
           })}
@@ -38,18 +38,40 @@ const data = [
   export default App;
 
   const Table = styled.div`
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   border: 2px solid black;
   padding: 8px;
   margin: 5px;
   border-radius: 9px;
-  text-align: center;
+  text-align: left;
   color: white;
-  .header{
-      font-size: 22px;
-      text-align: center;
-  }
+  margin-left:50px;
+  margin-right: 50px;
   .emotion{
     font-size: 22px;
     padding-left: 110px;
+  }
+  .emotion2{
+    font-size: 22px;
+    padding-left: 90px;
+  }
+  .date{
+    font-size: 22px;
+    text-align: center;
+
+  }
+  .center{
+    /* display: table;
+  margin: 0 auto; */
+  width:100%;
+  display: flex;
+  justify-content: center;
+
+  }
+  .dateHeader{
+    font-size: 22px;
+    text-align: center;
+    padding-right: 60px;
+    padding-left: 60px;
   }
   `
