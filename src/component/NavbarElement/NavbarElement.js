@@ -89,8 +89,8 @@ export default function NavbarElement() {
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/service" exact>
-               Services
+              <NavLink className="nav-link" to="/MoodChanger" exact>
+               Mood Changer
               </NavLink>
             </li>
             <li className="nav-item">

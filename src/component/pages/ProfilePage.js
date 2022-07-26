@@ -2,9 +2,13 @@
 import Profile from '../../images/profile.png';
 import styled from 'styled-components';
 import { useSpring, animated, config } from 'react-spring';
+
 import React, { useState } from 'react';
 import axios from "axios";
 import { useEffect } from "react";
+
+import Calender from '.././Calender';
+
 
 const Container = styled(animated.div)`
 display: inline-block;
@@ -18,10 +22,13 @@ border: 2px solid transparent;
 background-clip: border-box;
 cursor: pointer;
 `;
+const Container2 = styled.div`
+display: block;
+`;
 
 const StyledImg = styled.img`
     width: 200px;
-    height: auto;
+    height: 100px;
     margin-left: 50px;
     border: 2px solid #000;
     border-radius: 50%;
@@ -30,12 +37,14 @@ const StyledImg = styled.img`
 const StyledH1 = styled.h1`
     line-height: 1.5;
     letter-spacing: 1.5;
+    color: white;
     font-family: "Gilroy";
 `;
 
 const StyledH3 = styled.h3`
     line-height: 1.5;
     letter-spacing: 1.15;
+    color: white;
     font-family: "Gilroy";
     font-size: 20px;
 `;
@@ -60,8 +69,8 @@ export default function ProfilePage() {
     let token = JSON.parse(localStorage.getItem('user'));
 
     const [data , setData] = useState([]);
-    const [mood , setMood] = useState([]);
-    const [datemood , setDatemood] = useState([]);
+    // const [mood , setMood] = useState([]);
+    // const [datemood , setDatemood] = useState([]);
     
 
     useEffect (() =>{
@@ -76,19 +85,19 @@ export default function ProfilePage() {
         })
     },[]);
 
-    useEffect (() =>{
-        axios.get("http://127.0.0.1:8000/mood_app/user_moods/",
-        {headers:{"Authorization" : `Bearer ${token}`}})
-        .then((res)=>{
-         console.log(res.data.user_moods);
-         console.log(res.data.user_moods_date);
-         setMood(res.data.user_moods)
-         setDatemood(res.data.user_moods_date)
+    // useEffect (() =>{
+    //     axios.get("http://127.0.0.1:8000/mood_app/user_moods/",
+    //     {headers:{"Authorization" : `Bearer ${token}`}})
+    //     .then((res)=>{
+    //      console.log(res.data.user_moods);
+    //      console.log(res.data.user_moods_date);
+    //      setMood(res.data.user_moods)
+    //      setDatemood(res.data.user_moods_date)
          
-        }).catch((err)=>{
-            console.log(err)
-        })
-    },[]);
+    //     }).catch((err)=>{
+    //         console.log(err)
+    //     })
+    // },[]);
      console.log(data)
     const [props, set] = useSpring(() => ({ xys: [0, 0, 1] , config: config.default}))
   return (
@@ -102,15 +111,13 @@ export default function ProfilePage() {
                 transform: props.xys.interpolate(trans)
             }}
         >
-          <StyledImg src={Profile} />
-        <StyledH1>{data.username}</StyledH1>
-        <StyledH3>Data Scientist, Designer <br/> and Full Stack Developer</StyledH3> 
-        {/* <h1>{mood.user_moods_date}</h1> */}
-        <h1>{mood.happy}</h1>
-        <h1>{datemood}</h1>
-        
-        
+            <StyledImg src={data.pic} />
+            <StyledH1>{data.username}</StyledH1>
+            <Calender></Calender>
         </Container>
+        <br></br>
+        <Container2>
+       </Container2>
     </MainBg>
   )
 }
