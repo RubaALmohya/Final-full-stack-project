@@ -73,6 +73,7 @@ i {
 }
 #navbarSupportedContent .active > a:not(:only-child):after {
   transform: rotate(90deg);
+  
 }
 
 .hori-selector {

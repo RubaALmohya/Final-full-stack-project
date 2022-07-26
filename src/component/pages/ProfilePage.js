@@ -1,7 +1,10 @@
-import React from 'react'
+
 import Profile from '../../images/profile.png';
 import styled from 'styled-components';
 import { useSpring, animated, config } from 'react-spring';
+import React, { useState } from 'react';
+import axios from "axios";
+import { useEffect } from "react";
 
 const Container = styled(animated.div)`
 display: inline-block;
@@ -53,9 +56,45 @@ const MainBg = styled.div`
 `;
 
 export default function ProfilePage() {
+
+    let token = JSON.parse(localStorage.getItem('user'));
+
+    const [data , setData] = useState([]);
+    const [mood , setMood] = useState([]);
+    const [datemood , setDatemood] = useState([]);
+    
+
+    useEffect (() =>{
+        axios.get("http://127.0.0.1:8000/profile_app/get_user_info/",
+        {headers:{"Authorization" : `Bearer ${token}`}})
+        .then((res)=>{
+        //  console.log(res.data.info.username);
+          setData(res.data.info)
+         
+        }).catch((err)=>{
+            console.log(err)
+        })
+    },[]);
+
+    useEffect (() =>{
+        axios.get("http://127.0.0.1:8000/mood_app/user_moods/",
+        {headers:{"Authorization" : `Bearer ${token}`}})
+        .then((res)=>{
+         console.log(res.data.user_moods);
+         console.log(res.data.user_moods_date);
+         setMood(res.data.user_moods)
+         setDatemood(res.data.user_moods_date)
+         
+        }).catch((err)=>{
+            console.log(err)
+        })
+    },[]);
+     console.log(data)
     const [props, set] = useSpring(() => ({ xys: [0, 0, 1] , config: config.default}))
   return (
+    
     <MainBg>
+        
         <Container
             onMouseMove={({clientX: x, clientY: y}) => (set({xys: calc(x, y)}))}
             onMouseLeave={() => set({xys:[0,0,1]})}
@@ -63,9 +102,14 @@ export default function ProfilePage() {
                 transform: props.xys.interpolate(trans)
             }}
         >
-            <StyledImg src={Profile} />
-            <StyledH1>Ashutosh Hathidara</StyledH1>
-            <StyledH3>Data Scientist, Designer <br/> and Full Stack Developer</StyledH3>
+          <StyledImg src={Profile} />
+        <StyledH1>{data.username}</StyledH1>
+        <StyledH3>Data Scientist, Designer <br/> and Full Stack Developer</StyledH3> 
+        {/* <h1>{mood.user_moods_date}</h1> */}
+        <h1>{mood.happy}</h1>
+        <h1>{datemood}</h1>
+        
+        
         </Container>
     </MainBg>
   )
