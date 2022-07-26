@@ -35,13 +35,14 @@ import { useEffect } from "react";
     return (
       <div>
         <Table>
-          <tr>
-            <th className='header'>Date</th>
-            <th className='emotion'>Emotion </th>
+          <tr className='center'>
+            <th className='dateHeader'>Date</th>
+            <th className='emotion'> Emotion </th>
             </tr>
           {mood.map((val, key) => {
             return (
-              <tr key={key}>
+
+              <tr className='center' key={key}>
                 <td>{datemood[key]}</td>
                 <td className='emotion'> <BsFillSquareFill color={emotionColor[key]}/></td>
               </tr>
@@ -55,18 +56,39 @@ import { useEffect } from "react";
   export default App;
 
   const Table = styled.div`
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   border: 2px solid black;
   padding: 8px;
   margin: 5px;
   border-radius: 9px;
-  text-align: center;
+  text-align: left;
   color: white;
-  .header{
-      font-size: 22px;
-      text-align: center;
-  }
+  margin-left:50px;
+  margin-right: 50px;
   .emotion{
     font-size: 22px;
     padding-left: 110px;
+  }
+  .emotion2{
+    font-size: 22px;
+    padding-left: 90px;
+  }
+  .date{
+    font-size: 22px;
+    text-align: center;
+
+  }
+  .center{
+    
+  width:100%;
+  display: flex;
+  justify-content: center;
+
+  }
+  .dateHeader{
+    font-size: 22px;
+    text-align: center;
+    padding-right: 45px;
+    padding-left: 50px;
   }
   `
