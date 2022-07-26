@@ -2,6 +2,7 @@ import React from 'react'
 import Profile from '../../images/profile.png';
 import styled from 'styled-components';
 import { useSpring, animated, config } from 'react-spring';
+import Calender from '.././Calender';
 
 const Container = styled(animated.div)`
 display: inline-block;
@@ -15,6 +16,9 @@ border: 2px solid transparent;
 background-clip: border-box;
 cursor: pointer;
 `;
+const Container2 = styled.div`
+display: block;
+`;
 
 const StyledImg = styled.img`
     width: 200px;
@@ -27,12 +31,14 @@ const StyledImg = styled.img`
 const StyledH1 = styled.h1`
     line-height: 1.5;
     letter-spacing: 1.5;
+    color: white;
     font-family: "Gilroy";
 `;
 
 const StyledH3 = styled.h3`
     line-height: 1.5;
     letter-spacing: 1.15;
+    color: white;
     font-family: "Gilroy";
     font-size: 20px;
 `;
@@ -65,8 +71,12 @@ export default function ProfilePage() {
         >
             <StyledImg src={Profile} />
             <StyledH1>Ashutosh Hathidara</StyledH1>
-            <StyledH3>Data Scientist, Designer <br/> and Full Stack Developer</StyledH3>
+            <Calender></Calender>
         </Container>
+        <br></br>
+        <Container2>
+       
+       </Container2>
     </MainBg>
   )
 }
