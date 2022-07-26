@@ -1,9 +1,11 @@
 import React , {useState , useEffect } from 'react'
-import Profile from '../../images/profile.png';
+import Profile from '../../images/report.png';
 import styled from 'styled-components';
 import { useSpring, animated, config } from 'react-spring';
 import axios from 'axios'
 import {useNavigate} from "react-router-dom"
+import { NavLink } from 'react-router-dom';
+
 
 
 const Container = styled(animated.div)`
@@ -96,6 +98,7 @@ export default function Login() {
         if (loggedInUser) {
           const foundUser = JSON.parse(loggedInUser);
           setUser(foundUser);
+
         }
       }, []);
 
@@ -111,10 +114,11 @@ export default function Login() {
       const handleSubmit = async e => {
         e.preventDefault();
         const user = { username, password };
-  
-        const response = await axios.post(`http://127.0.0.1:8000/login_user/`, user);
+
+        
+        const response = await axios.post(`http://127.0.0.1:8000/user_app/login/`, user);
         setUser(response.data);
-        localStorage.setItem("user", JSON.stringify(response.data));
+        localStorage.setItem("user", JSON.stringify(response.data.token));
         alert(response.data.msg)
         navigate("/ProfilePage")
       };
@@ -147,22 +151,23 @@ return (
                 transform: props.xys.interpolate(trans)
             }}
         >
-            <StyledImg src={Profile} />
+            <StyledImg src={Profile}/>
             <form onSubmit={handleSubmit}>
             <StyledH1>Login</StyledH1>
                 <StyleInput 
                 type="text"
                 value={username}
-                placeholder="Enter a username"
+                placeholder="Username"
                 onChange={({ target }) => setUsername(target.value)}
                 /><br/>
                 <StyleInput
                 type="password"
                 value={password}
-                placeholder="Enter a password"
+                placeholder="Password"
                 onChange={({ target }) => setPassword(target.value)}
                 />
 				<StyleButton type="submit">LOGIN</StyleButton>
+                <p style={{marginLeft:"5px" , marginTop:"10px"}}>Don't have an account ? <NavLink style={{color:"#fff"}} to="/Register" exact>Sign Up</NavLink> </p>
                 </form>
         </Container>
     </MainBg>

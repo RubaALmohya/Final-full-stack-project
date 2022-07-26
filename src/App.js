@@ -10,7 +10,9 @@ import Login from './component/pages/Login';
 import Footer from "./component/Footer";
 import NoPage from "./component/pages/NoPage";
 import About from "./component/pages/About";
+import Register from './component/pages/Register';
 import MoodChangerContent from './component/pages/MoodChangerContent';
+
 
 
 
@@ -23,11 +25,13 @@ function App() {
       {/* <MainPageRobot/> */}
       {/* <ProfilePage/> */}
       {/* <Login/> */}
+      {/* <Register/> */}
         <Routes>
           <Route path='/' element={<Home/>}> </Route>
           <Route path='Home' element={<Home/>}> </Route>
-          <Route path='/ProfilePage' element={<ProfilePage/>}> </Route>
           <Route path='/Login' element={<Login/>}> </Route>
+          <Route path='/Register' element={<Register/>}> </Route>
+          <Route path='/ProfilePage' element={<ProfilePage/>}> </Route>
           <Route path='/About' element={<About/>}> </Route>
           <Route path='/MoodChanger' element={<MoodChangerContent/>}> </Route>
           <Route  path="*" element={<NoPage />}></Route>

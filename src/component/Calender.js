@@ -1,20 +1,37 @@
-import React from 'react';
 import {BsFillSquareFill} from 'react-icons/bs';
 import styled from "styled-components";
-
+import React, { useState } from 'react';
+import axios from "axios";
+import { useEffect } from "react";
 // Example of a data array that
 // you might receive from an API
-const data = [
-    { user_moods_date:"2022-07-26", user_moods:{emotion_name:"sad", emotion_color:"#898a88"}},
-    { user_moods_date:"2022-07-26", user_moods:{emotion_name:"neutral", emotion_color:"white"}},
-    { user_moods_date:"2022-07-26", user_moods:{emotion_name:"happy", emotion_color:"#ffe347"}},
-    { user_moods_date:"2022-07-26", user_moods:{emotion_name:"fear", emotion_color:"#b04bdb"}},
-    { user_moods_date:"2022-07-26", user_moods:{emotion_name:"disgust", emotion_color:"#915a2a"}},
-    { user_moods_date:"2022-07-26", user_moods:{emotion_name:"angry", emotion_color:"#db4b4b"}},
-    { user_moods_date:"2022-07-26", user_moods:{emotion_name:"surprised", emotion_color:"#46cfd4"}},
-  ]
+
+
+  
     
   function App() {
+    let token = JSON.parse(localStorage.getItem('user'));
+    const [mood , setMood] = useState([]);
+    const [datemood , setDatemood] = useState([]);
+    const [emotionColor , setEmotionColor] = useState([])
+
+  useEffect (() =>{
+    axios.get("http://127.0.0.1:8000/mood_app/user_moods/",
+    {headers:{"Authorization" : `Bearer ${token}`}})
+    .then((res)=>{
+     console.log(res.data.emotion_name);
+     console.log(res.data.user_moods_date);
+     console.log(res.data.emotion_color);
+     setMood(res.data.emotion_name)
+     setDatemood(res.data.user_moods_date)
+     setEmotionColor(res.data.emotion_color)
+
+     console.log(emotionColor[0])
+     
+    }).catch((err)=>{
+        console.log(err)
+    })
+},[]);
     return (
       <div>
         <Table>
@@ -22,11 +39,12 @@ const data = [
             <th className='dateHeader'>Date</th>
             <th className='emotion'> Emotion </th>
             </tr>
-          {data.map((val, key) => {
+          {mood.map((val, key) => {
             return (
-              <tr key={key} className='center'>
-                <td className='date'>{val.user_moods_date}</td>
-                <td className='emotion2'> <BsFillSquareFill color={val.user_moods.emotion_color}/></td>
+
+              <tr key={key}>
+                <td>{datemood[key]}</td>
+                <td className='emotion'> <BsFillSquareFill color={emotionColor[key]}/></td>
               </tr>
             )
           })}
