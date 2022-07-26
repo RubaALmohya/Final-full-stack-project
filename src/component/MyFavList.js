@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from 'react';
+import axios from "axios";
+import { useEffect } from "react";
 import {
   MDBRow,
   MDBCol,
@@ -12,6 +14,46 @@ import { MdFavoriteBorder } from "react-icons/md";
 import styled from "styled-components";
 
 const MyFavList = () => {
+
+  let token = JSON.parse(localStorage.getItem('user'));
+  const [data , setData] = useState([]);
+  const [favImage , setFavImage] = useState([]);
+  const [favdate , setFavdate] = useState([]);
+  
+  
+
+  useEffect (() =>{
+    axios.get("http://127.0.0.1:8000/profile_app/get_user_fav/",
+    {headers:{"Authorization" : `Bearer ${token}`}})
+    .then((res)=>{
+      // console.log(res.data.fav)
+
+      console.log(res.data)
+      
+      setData(res.data.fav[0].Content.img)
+      setFavdate(res.data.fav[0].date)
+      console.log(data)
+      
+      // console.log(res.data.fav)
+      // setData(res.data.fav)
+      // console.log(data)
+      
+  
+
+      // setFavImage(res.data.fav[0].Content.img)
+      // console.log(favImage)
+      // setFavdate(res.data.fav[0].date)
+      // console.log(favdate)
+
+ 
+      
+
+    
+     
+    }).catch((err)=>{
+        console.log(err)
+    })
+},[]);
   return (
     <>
       <MDBRow
@@ -19,66 +61,26 @@ const MyFavList = () => {
         style={{ marginLeft: "5px", marginRight: "5px" }}
       >
         <MDBCol sm="6">
+          
           <MDBCard>
             <MDBCardBody>
+             {/* {data.map((e)=>{
+              <img
+              src={e.data.fav[e].Content.img}
+              className="img-thumbnail"
+              alt="..."
+              style={{ maxWidth: "10rem" }}
+            />
+             })} */}
+            <img
+            src={data}
+            className="img-thumbnail"
+            alt="..."
+            style={{ maxWidth: "10rem" }}
+          />
               <MDBCardTitle>Special title treatment</MDBCardTitle>
               <MDBCardText>
-                With supporting text below as a natural lead-in to additional
-                content.
-              </MDBCardText>
-              <MDBBtn
-                className="text-dark"
-                color="light"
-                style={{ width: "120px" }}
-              >
-                <MdFavoriteBorder size={30} color={"#0b0b25"} />
-              </MDBBtn>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-        <MDBCol sm="6">
-          <MDBCard>
-            <MDBCardBody>
-              <MDBCardTitle>Special title treatment</MDBCardTitle>
-              <MDBCardText>
-                With supporting text below as a natural lead-in to additional
-                content.
-              </MDBCardText>
-              <MDBBtn
-                className="text-dark"
-                color="light"
-                style={{ width: "120px" }}
-              >
-                <MdFavoriteBorder size={30} color={"#0b0b25"} />
-              </MDBBtn>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-        <MDBCol sm="6">
-          <MDBCard>
-            <MDBCardBody>
-              <MDBCardTitle>Special title treatment</MDBCardTitle>
-              <MDBCardText>
-                With supporting text below as a natural lead-in to additional
-                content.
-              </MDBCardText>
-              <MDBBtn
-                className="text-dark"
-                color="light"
-                style={{ width: "120px" }}
-              >
-                <MdFavoriteBorder size={30} color={"#0b0b25"} />
-              </MDBBtn>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-        <MDBCol sm="6">
-          <MDBCard>
-            <MDBCardBody>
-              <MDBCardTitle>Special title treatment</MDBCardTitle>
-              <MDBCardText>
-                With supporting text below as a natural lead-in to additional
-                content.
+              {favdate}
               </MDBCardText>
               <MDBBtn
                 className="text-dark"
