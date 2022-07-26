@@ -69,21 +69,27 @@ export default function ProfilePage() {
     let token = JSON.parse(localStorage.getItem('user'));
 
     const [data , setData] = useState([]);
+    const [dataimage , setDataimage] = useState([]);
     // const [mood , setMood] = useState([]);
     // const [datemood , setDatemood] = useState([]);
     
-
+    
     useEffect (() =>{
         axios.get("http://127.0.0.1:8000/profile_app/get_user_info/",
         {headers:{"Authorization" : `Bearer ${token}`}})
         .then((res)=>{
         //  console.log(res.data.info.username);
           setData(res.data.info)
+          setDataimage(res.data.pic.pic)
          
         }).catch((err)=>{
             console.log(err)
         })
     },[]);
+
+ 
+
+    
 
     // useEffect (() =>{
     //     axios.get("http://127.0.0.1:8000/mood_app/user_moods/",
@@ -111,7 +117,7 @@ export default function ProfilePage() {
                 transform: props.xys.interpolate(trans)
             }}
         >
-            <StyledImg src={data.pic} />
+            <StyledImg src={dataimage} />
             <StyledH1>{data.username}</StyledH1>
             <Calender></Calender>
         </Container>
