@@ -10,7 +10,7 @@ const About = () => {
           <img src={RobotImg} style={{width: "700px"}}/>
           </ImgAbout>
           <Text>
-            <h1 style={{color:"white", fontSize:"70px", marginBottom: "20px", textTransform: "capitalize"}}> About Mr. Moody</h1>
+            <h1 style={{color:"white", fontSize:"64px", marginBottom: "20px", textTransform: "capitalize"}}> About Mr. Moody</h1>
             <h5 style={{color: "white", fontSize:"25px", marginBottom: "25px", textTransform:"capitalize", letterSpacing: "2px"}}> Mission: Change Humans' Mood </h5>
             <p style={{color: "#c0c4d6", fontSize: "18px", lineHeight:"28px", letterSpacing: "1px", marginBottom:"45px"}}> I was created and designed by a team from Tuwaiq Academy. I was told that I can assist humans to be happier. The first step is to make an analysis of a webcam picture to detect a person's emotion from his facial expression. Afterward, the content will be shown to hopefully change the person's mood. I know that the user's mood has become better from adding content to his favorite besides his facial expression.  </p>
             <Btn>
