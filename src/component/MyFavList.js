@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useParams } from "react";
 import {
   MDBRow,
   MDBCol,
@@ -23,6 +23,7 @@ const MyFavList = () => {
   
 
   useEffect (() =>{
+    
     axios.get("http://127.0.0.1:8000/profile_app/get_user_fav/",
     {headers:{"Authorization" : `Bearer ${token}`}})
     .then((res)=>{

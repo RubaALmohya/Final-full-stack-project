@@ -114,7 +114,7 @@ export default function Register() {
     >
         <StyledImg src={Profile} />
         <form>
-        <StyledH1>Register</StyledH1>
+        <StyledH1 style={{color:"#fff"}} >Register</StyledH1>
             <StyleInput 
             type="text"
             value={username}
