@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 import axios from "axios";
 import { useEffect } from "react";
+import Footer from '../../component/Footer';
 
 
 const Container = styled(animated.div)`
@@ -75,7 +76,8 @@ const MainBg = styled.div`
   align-items: center;
 `;
 
-export default function ProfilePage() {
+
+const ProfilePage = () => {
 
 
     let token = JSON.parse(localStorage.getItem('user'));
@@ -133,7 +135,7 @@ export default function ProfilePage() {
     //  console.log(data)
     const [props, set] = useSpring(() => ({ xys: [0, 0, 1] , config: config.default}))
   return (
-    
+    <div>
     <MainBg>        
         <Container
             onMouseMove={({clientX: x, clientY: y}) => (set({xys: calc(x, y)}))}
@@ -148,11 +150,15 @@ export default function ProfilePage() {
             <StyledImg src={UserIcon} />
 
             <StyledH1>{data.username}</StyledH1>
-             <p style={{color: "white"}}>  <img src={RateImg}/> Level of Satisfaction: {avg}</p> 
+             <p style={{color: "white"}}>  <img src={RateImg}/> Level of Satisfaction: {Math.round(avg * 100)/ 100}</p> 
             <Calender></Calender>
             <Note>Note: on a certain date colors will be shown based on your emotion. <br/> ( <BsFillSquareFill color={'#898a88'}/> Sad , <BsFillSquareFill color={'white'}/>  Neutral, <BsFillSquareFill color={'#ffe347'}/> Happy, <BsFillSquareFill color={'#b04bdb'}/> Fear, <BsFillSquareFill color={'#915a2a'}/> Disgust, <BsFillSquareFill color={'#db4b4b'}/> Angry, <BsFillSquareFill color={'#46cfd4'}/> Surprised).</Note>
         </Container>
         <br></br>
+      
     </MainBg>
+  </div>
   );
 }
+
+export default ProfilePage;

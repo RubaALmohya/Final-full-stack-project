@@ -5,8 +5,11 @@ import React, { useState } from 'react';
 import axios from "axios";
 import { useEffect } from "react";
 import RateComponent from "./Rate";
+import Popup from "./PopUp";
+import ImgRate from "../images/review.png";
 
 const ShowContent = () => {
+  const [btnPopup, setBtnPopup] = useState(false);
 
   let token = JSON.parse(localStorage.getItem('user'));
   const [data , setData] = useState([]);
@@ -44,6 +47,10 @@ const ShowContent = () => {
   return (
     <>
       <MDBRow className="justify-content-md-center">
+      <BtnOpen onClick={()=> setBtnPopup(true)}> <ImageRating src ={ImgRate}/> </BtnOpen>
+            <Popup trigger={btnPopup} setTrigger={setBtnPopup}>
+            <RateComponent/>
+            </Popup>
         <MDBCol>
           <img
             src={data.img}
@@ -71,7 +78,7 @@ const ShowContent = () => {
             >
               <MdFavorite size={30} color={"#0b0b25"} />
             </MDBBtn>
-            <RateComponent></RateComponent>
+
           </MDBCol>
         </MDBCol>
       </MDBRow>
@@ -80,3 +87,17 @@ const ShowContent = () => {
 };
 
 export default ShowContent;
+
+const ImageRating = styled.img`
+width:40px;
+
+`;
+const BtnOpen = styled.button`
+margin-top: 80px;
+border: none;
+background: none;
+position: absolute;
+top: 0px;
+left:21vw;
+
+`;
