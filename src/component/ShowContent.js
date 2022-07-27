@@ -10,6 +10,7 @@ const ShowContent = () => {
 
   let token = JSON.parse(localStorage.getItem('user'));
   const [data , setData] = useState([]);
+  const [id_content, setId_content] = useState('')
 
  const next = () => {
   axios.get("http://127.0.0.1:8000/mood_app/display_content/",
@@ -17,6 +18,7 @@ const ShowContent = () => {
   .then((res)=>{
     console.log(res.data)
     setData(res.data.content)
+    setId_content(res.data.content.id)
     console.log(data)  
   }).catch((err)=>{
       console.log(err)
@@ -24,12 +26,18 @@ const ShowContent = () => {
   };
 
   const addFav = () =>{
-
-
+    let id = id_content.toString();
+    const url =`http://127.0.0.1:8000/profile_app/add_user_fav/${id}`;
+    axios.post(url,{},
+    {headers:{"Authorization" : `Bearer ${token}`}})
+  .then((res)=>{
+  }).catch((err)=>{
+      console.log(err)
+  })
   };
-
   useEffect (() =>{
     next()
+    
 },[]);
 
   return (
@@ -57,6 +65,7 @@ const ShowContent = () => {
               className="text-dark"
               color="light"
               style={{ marginLeft: "50px", width: "120px" }}
+              onClick={addFav}
               
             >
               <MdFavorite size={30} color={"#0b0b25"} />
