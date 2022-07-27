@@ -10,6 +10,7 @@ const Img=styled.img`
 height: 50px;
 `
 
+let token = JSON.parse(localStorage.getItem('user'));
 
 export default function NavbarElement() {
   function animation(){
@@ -93,16 +94,24 @@ export default function NavbarElement() {
                Mood Changer
               </NavLink>
             </li>
+            {token ? 
             <li className="nav-item">
               <NavLink className="nav-link" to="/ProfilePage" exact>
                Profile
               </NavLink>
-            </li>
+            </li>:    <li className="nav-item">
+            
+            </li>}
+            {token ? 
             <li className="nav-item">
               <NavLink className="nav-link" to="/Login" exact>
-                Login
+                logout
               </NavLink>
-            </li>
+            </li>:    <li className="nav-item">
+              <NavLink className="nav-link" to="/Login" exact>
+                login
+              </NavLink>
+            </li>}
         </ul>
         
       </div>
