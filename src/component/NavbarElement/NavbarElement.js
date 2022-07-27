@@ -110,6 +110,7 @@ export default function NavbarElement() {
             </li>:    <li className="nav-item">
               <NavLink className="nav-link" to="/Login" exact>
                 login
+            
               </NavLink>
             </li>}
         </ul>
