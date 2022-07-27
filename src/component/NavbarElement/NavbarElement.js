@@ -5,6 +5,7 @@ import '../NavbarElement/NavbarElement.css'
 import Logo from '../../images/logoMood.png';
 import $ from 'jquery'; 
 
+
 const Img=styled.img`
 
 height: 50px;
@@ -43,7 +44,6 @@ export default function NavbarElement() {
   }
 
   useEffect(() => {
-    
     animation();
     $(window).on('resize', function(){
       setTimeout(function(){ animation(); }, 500);
@@ -95,7 +95,7 @@ export default function NavbarElement() {
               </NavLink>
             </li>
             {token ? 
-            <li className="nav-item">
+            <li className="nav-item " >
               <NavLink className="nav-link" to="/ProfilePage" exact>
                Profile
               </NavLink>
@@ -103,14 +103,17 @@ export default function NavbarElement() {
             
             </li>}
             {token ? 
-            <li className="nav-item">
+            <li className="nav-item ">
               <NavLink className="nav-link" to="/Login" exact>
-                logout
+                Logout
+             
               </NavLink>
-            </li>:    <li className="nav-item">
+            </li>:    <li className="nav-item ">
               <NavLink className="nav-link" to="/Login" exact>
-                login
+                Login
               </NavLink>
+              
+
             </li>}
         </ul>
         
