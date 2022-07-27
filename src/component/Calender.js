@@ -26,7 +26,7 @@ import { useEffect } from "react";
      setDatemood(res.data.user_moods_date)
      setEmotionColor(res.data.emotion_color)
 
-     console.log(emotionColor[0])
+    //  console.log(emotionColor[0])
      
     }).catch((err)=>{
         console.log(err)

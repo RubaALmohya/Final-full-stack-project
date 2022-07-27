@@ -1,7 +1,9 @@
-import React from "react";
 import { MDBRow, MDBCol, MDBBtn } from "mdb-react-ui-kit";
 import { MdFavorite } from "react-icons/md";
 import styled from "styled-components";
+import React, { useState } from 'react';
+import axios from "axios";
+import { useEffect } from "react";
 
 const ShowContent = () => {
   return (

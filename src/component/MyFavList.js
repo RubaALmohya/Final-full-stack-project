@@ -29,9 +29,9 @@ const MyFavList = () => {
       // console.log(res.data.fav)
 
       console.log(res.data)
-      
-      setData(res.data.fav[0].Content.img)
-      setFavdate(res.data.fav[0].date)
+    
+      setData(res.data.fav[1].Content.img)
+      setFavdate(res.data.fav[1].date)
       console.log(data)
       
       // console.log(res.data.fav)
