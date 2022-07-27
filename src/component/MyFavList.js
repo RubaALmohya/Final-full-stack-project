@@ -28,11 +28,12 @@ const MyFavList = () => {
     .then((res)=>{
       // console.log(res.data.fav)
 
-      console.log(res.data)
-    
-      setData(res.data.fav[1].Content.img)
-      setFavdate(res.data.fav[1].date)
-      console.log(data)
+      console.log(res.data.fav)
+      setData(res.data.fav)
+      
+      
+      // setData(res.data.fav[1].Content.img)
+      // setFavdate(res.data.fav[1].date)
       
       // console.log(res.data.fav)
       // setData(res.data.fav)
@@ -44,9 +45,6 @@ const MyFavList = () => {
       // console.log(favImage)
       // setFavdate(res.data.fav[0].date)
       // console.log(favdate)
-
- 
-      
 
     
      
@@ -60,27 +58,22 @@ const MyFavList = () => {
         className="row-cols-1 row-cols-md-3 g-4"
         style={{ marginLeft: "5px", marginRight: "5px" }}
       >
+        {data.map((e)=>{
+              return (
         <MDBCol sm="6">
-          
+        
           <MDBCard>
             <MDBCardBody>
-             {/* {data.map((e)=>{
-              <img
-              src={e.data.fav[e].Content.img}
+            <img
+              src={e.Content.img}
               className="img-thumbnail"
               alt="..."
               style={{ maxWidth: "10rem" }}
             />
-             })} */}
-            <img
-            src={data}
-            className="img-thumbnail"
-            alt="..."
-            style={{ maxWidth: "10rem" }}
-          />
-              <MDBCardTitle>Special title treatment</MDBCardTitle>
+             
+              <MDBCardTitle>{e.Content.description}</MDBCardTitle>
               <MDBCardText>
-              {favdate}
+              {e.date}
               </MDBCardText>
               <MDBBtn
                 className="text-dark"
@@ -91,7 +84,9 @@ const MyFavList = () => {
               </MDBBtn>
             </MDBCardBody>
           </MDBCard>
+         
         </MDBCol>
+        ) })}
       </MDBRow>
     </>
   );
