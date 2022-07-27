@@ -11,7 +11,7 @@ import {
 import styled from "styled-components";
 import ShowContent from "../ShowContent";
 import MyFavList from "../MyFavList";
-
+import TakePic from "../TakePic";
 const MoodChangerContent = () => {
   const [fillActive, setFillActive] = useState("tab1");
 
@@ -25,6 +25,7 @@ const MoodChangerContent = () => {
 
   return (
     <BG>
+      <TakePic></TakePic>
         <RobotContainer>
       <Spline className="spline" scene="https://prod.spline.design/AQkIUkzs-sEjJ2gh/scene.splinecode" />
 
