@@ -6,8 +6,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import RateComponent from "./Rate";
 
-let isClicked = false;
-
 const ShowContent = () => {
 
   let token = JSON.parse(localStorage.getItem('user'));

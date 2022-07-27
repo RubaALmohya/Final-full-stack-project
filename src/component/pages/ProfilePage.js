@@ -82,6 +82,7 @@ export default function ProfilePage() {
 
     const [data , setData] = useState([]);
     const [dataimage , setDataimage] = useState([]);
+    const [avg , setAVG] = useState([])
     // const [mood , setMood] = useState([]);
     // const [datemood , setDatemood] = useState([]);
     
@@ -99,7 +100,20 @@ export default function ProfilePage() {
         })
     },[]);
 
- 
+    
+
+    useEffect (() =>{
+    axios.get("http://127.0.0.1:8000/profile_app/get_user_rating_avg/",
+    {headers:{"Authorization" : `Bearer ${token}`}})
+    .then((res)=>{
+       
+    console.log("res.data.AVG");
+    console.log(res.data.AVG);
+    setAVG(res.data.AVG)
+    }).catch((err)=>{
+        console.log(err)
+        })
+    },[]);
 
     
 
@@ -116,7 +130,7 @@ export default function ProfilePage() {
     //         console.log(err)
     //     })
     // },[]);
-     console.log(data)
+    //  console.log(data)
     const [props, set] = useSpring(() => ({ xys: [0, 0, 1] , config: config.default}))
   return (
     
@@ -134,7 +148,7 @@ export default function ProfilePage() {
             <StyledImg src={UserIcon} />
 
             <StyledH1>{data.username}</StyledH1>
-            <p style={{color: "white"}}>  <img src={RateImg}/> Level of Satisfaction: 5</p>
+             <p style={{color: "white"}}>  <img src={RateImg}/> Level of Satisfaction: {avg}</p> 
             <Calender></Calender>
             <Note>Note: on a certain date colors will be shown based on your emotion. <br/> ( <BsFillSquareFill color={'#898a88'}/> Sad , <BsFillSquareFill color={'white'}/>  Neutral, <BsFillSquareFill color={'#ffe347'}/> Happy, <BsFillSquareFill color={'#b04bdb'}/> Fear, <BsFillSquareFill color={'#915a2a'}/> Disgust, <BsFillSquareFill color={'#db4b4b'}/> Angry, <BsFillSquareFill color={'#46cfd4'}/> Surprised).</Note>
         </Container>
