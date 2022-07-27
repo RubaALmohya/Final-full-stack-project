@@ -108,6 +108,8 @@ export default function Login() {
         setPassword("");
         localStorage.clear();
         navigate("/Home")
+        window.location.reload()
+       
         
       };
 
@@ -121,6 +123,7 @@ export default function Login() {
         localStorage.setItem("user", JSON.stringify(response.data.token));
         alert(response.data.msg)
         navigate("/ProfilePage")
+        window.location.reload()
       };
     
       if (user) {
@@ -135,7 +138,7 @@ export default function Login() {
               }}
           >
               <StyledImg style={{marginLeft:"50px" , marginBottom:"20px"}} src={Profile} />
-              <StyledH1 style={{marginLeft:"20px"}}>{user.username}You are logged in</StyledH1>
+              <StyledH1 style={{marginLeft:"20px" , color:"#fff"}}>{user.username}You are logged in</StyledH1>
                 <br/><br/>
 				<StyleButton style={{marginTop:"-10px"}} type="submit" onClick={handleLogout}>LOGOUT</StyleButton>  
           </Container>
@@ -153,7 +156,7 @@ return (
         >
             <StyledImg src={Profile}/>
             <form onSubmit={handleSubmit}>
-            <StyledH1>Login</StyledH1>
+            <StyledH1 style={{color:"#fff"}} >Login</StyledH1>
                 <StyleInput 
                 type="text"
                 value={username}
@@ -166,8 +169,8 @@ return (
                 placeholder="Password"
                 onChange={({ target }) => setPassword(target.value)}
                 />
-				<StyleButton type="submit">LOGIN</StyleButton>
-                <p style={{marginLeft:"5px" , marginTop:"10px"}}>Don't have an account ? <NavLink style={{color:"#fff"}} to="/Register" exact>Sign Up</NavLink> </p>
+				<StyleButton type="submit" style={{color:"#000"}} >LOGIN</StyleButton>
+                <p style={{marginLeft:"5px" , marginTop:"10px" , color:'#fff'}}>Don't have an account ? <NavLink style={{color:"#fff"}} to="/Register" exact>Sign Up</NavLink> </p>
                 </form>
         </Container>
     </MainBg>
