@@ -17,8 +17,6 @@ const MyFavList = () => {
 
   let token = JSON.parse(localStorage.getItem('user'));
   const [data , setData] = useState([]);
-  const [favImage , setFavImage] = useState([]);
-  const [favdate , setFavdate] = useState([]);
   
   
 
@@ -27,32 +25,13 @@ const MyFavList = () => {
     axios.get("http://127.0.0.1:8000/profile_app/get_user_fav/",
     {headers:{"Authorization" : `Bearer ${token}`}})
     .then((res)=>{
-      // console.log(res.data.fav)
-
-      console.log(res.data.fav)
       setData(res.data.fav)
-      
-      
-      // setData(res.data.fav[1].Content.img)
-      // setFavdate(res.data.fav[1].date)
-      
-      // console.log(res.data.fav)
-      // setData(res.data.fav)
-      // console.log(data)
-      
-  
-
-      // setFavImage(res.data.fav[0].Content.img)
-      // console.log(favImage)
-      // setFavdate(res.data.fav[0].date)
-      // console.log(favdate)
-
-    
-     
     }).catch((err)=>{
         console.log(err)
     })
 },[]);
+
+
   return (
     <>
       <MDBRow
@@ -80,9 +59,15 @@ const MyFavList = () => {
                 className="text-dark"
                 color="light"
                 style={{ width: "120px" }}
+                onClick={()=>{
+                  // setDelet(e.Content.id);
+                  // deleteFav();
+                }}
               >
                 <MdFavoriteBorder size={30} color={"#0b0b25"} />
               </MDBBtn>
+
+              
             </MDBCardBody>
           </MDBCard>
          

@@ -141,7 +141,7 @@ export default function Login() {
               }}
           >
               <StyledImg style={{marginLeft:"50px" , marginBottom:"20px"}} src={Profile} />
-              <StyledH1 style={{marginLeft:"20px"}}>{user.username}You are logged in</StyledH1>
+              <StyledH1 style={{marginLeft:"20px" , color:"#fff"}}>{user.username}You are logged in</StyledH1>
                 <br/><br/>
 				<StyleButton style={{marginTop:"-10px"}} type="submit" onClick={handleLogout}>LOGOUT</StyleButton>  
           </Container>
