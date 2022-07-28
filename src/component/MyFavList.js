@@ -10,16 +10,15 @@ import {
   MDBCardText,
   MDBBtn,
 } from "mdb-react-ui-kit";
-import { MdFavoriteBorder } from "react-icons/md";
+import { BsFillArchiveFill } from "react-icons/bs";
 import styled from "styled-components";
 
 const MyFavList = () => {
 
   let token = JSON.parse(localStorage.getItem('user'));
   const [data , setData] = useState([]);
-  const [favImage , setFavImage] = useState([]);
-  const [favdate , setFavdate] = useState([]);
-  
+  const [delets , setDelet] = useState([]);
+  const [id_content, setId_content] = useState('')
   
 
   useEffect (() =>{
@@ -29,30 +28,47 @@ const MyFavList = () => {
     .then((res)=>{
       // console.log(res.data.fav)
 
-      console.log(res.data.fav)
-      setData(res.data.fav)
-      
-      
-      // setData(res.data.fav[1].Content.img)
-      // setFavdate(res.data.fav[1].date)
-      
       // console.log(res.data.fav)
-      // setData(res.data.fav)
-      // console.log(data)
+      setData(res.data.fav)
+      setId_content(res.data.fav.Content.id)
       
-  
-
-      // setFavImage(res.data.fav[0].Content.img)
-      // console.log(favImage)
-      // setFavdate(res.data.fav[0].date)
-      // console.log(favdate)
-
-    
-     
+      
     }).catch((err)=>{
         console.log(err)
     })
 },[]);
+
+
+
+// const deleteFav= () => {
+//   axios
+//     .delete(`http://127.0.0.1:8000/profile_app/delete_uers_fav/${delets}/`)
+//     .then((res) => {
+//       setDelet(res.data.fav);
+      
+      
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+
+
+const deleteFav = (e) =>{
+  console.log('**');
+  console.log(e)
+  let id = e.toString();
+  
+  const url =`http://127.0.0.1:8000/profile_app/delete_uers_fav/${id}`;
+  axios.delete(url,
+  {headers:{"Authorization" : `Bearer ${token}`}})
+.then((res)=>{
+}).catch((err)=>{
+    console.log(err)
+})
+
+};
+
   return (
     <>
       <MDBRow
@@ -80,9 +96,18 @@ const MyFavList = () => {
                 className="text-dark"
                 color="light"
                 style={{ width: "120px" }}
+                onClick={deleteFav(e.Content.id)}
+                // {()=>{
+                //   setDelet(e.Content.id);
+                //   deleteFav();
+                // }}
               >
-                <MdFavoriteBorder size={30} color={"#0b0b25"} />
+
+
+                <BsFillArchiveFill size={30} color={"#0b0b25"} />
               </MDBBtn>
+
+              
             </MDBCardBody>
           </MDBCard>
          
