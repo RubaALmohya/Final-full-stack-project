@@ -58,7 +58,7 @@ const ShowContent = () => {
             alt="..."
             style={{ maxWidth: "24rem" }}
           />
-          <p>{data.description}</p>
+          <p  style={{fontFamily:'M PLUS Rounded 1c', marginTop: "15px"}} > [ {data.description} ]</p>
           <MDBCol style={{ paddingTop: "50px" }}>
             <MDBBtn
               className="text-dark"
