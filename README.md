@@ -8,7 +8,7 @@ Description.
 -
 
 ### Team members:
-- Houra Alomany (Front end):
+- Hawra Alomani (Front end):
 - Jawaher Alqotym (Back end):
 - Nora (Front end):
 - Ruba Almhya (Back end & ML):
