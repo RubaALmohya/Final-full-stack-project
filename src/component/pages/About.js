@@ -33,6 +33,7 @@ background-color: #0b0b25;
 display: flex;
 justify-content: center;
 align-items: center;
+font-family: 'M PLUS Rounded 1c', sans-serif;
 @media screen and (max-width: 1180px){
   width: 100%;
   height: auto;

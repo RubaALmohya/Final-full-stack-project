@@ -1,4 +1,3 @@
-
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
@@ -12,8 +11,6 @@ import NoPage from "./component/pages/NoPage";
 import About from "./component/pages/About";
 import Register from './component/pages/Register';
 import MoodChangerContent from './component/pages/MoodChangerContent';
-
-
 
 
 function App() {

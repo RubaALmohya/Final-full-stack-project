@@ -75,7 +75,7 @@ const Container = styled.div`
   margin: auto;
   width: 50%;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 160px;
   /* margin-right: 700px; */
 `;
 const Container2 = styled.div`

@@ -152,3 +152,7 @@ i {
     left: -25px;
   }
 }
+
+.test{
+  display: none;
+ }

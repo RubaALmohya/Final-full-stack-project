@@ -9,10 +9,11 @@ import { NavLink } from 'react-router-dom';
 
 
 const Container = styled(animated.div)`
+font-family: 'M PLUS Rounded 1c', sans-serif;
 display: inline-block;
 padding: 3em;
 /* background: #C7D2FE66;  */
-background: #264871;
+background-color: white;
 border-radius: 10px;
 z-index: 1;
 position: relative;
@@ -25,7 +26,7 @@ cursor: pointer;
 const StyledImg = styled.img`
     width: 200px;
     height: auto;
-    margin-left: 65px;
+    margin-left: 70px;
     border: 2px solid #000;
     border-radius: 50%;
 `;
@@ -33,14 +34,14 @@ const StyledImg = styled.img`
 const StyledH1 = styled.h1`
     line-height: 1.5;
     letter-spacing: 1.5;
-    font-family: "Gilroy";
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     margin-left: 115px;
 `;
 
 const StyledH2 = styled.h3`
     line-height: 1.5;
     letter-spacing: 1.15;
-    font-family: "Gilroy";
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     font-size: 20px;
 `;
 
@@ -73,11 +74,13 @@ const StyleButton = styled.button`
 const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1]
 const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 const MainBg = styled.div`
-  position: absolute;
+  /* position: absolute; */
   right: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
   overflow: hidden;
   background-color: #0b0b25;
   display:flex;
@@ -137,8 +140,8 @@ export default function Login() {
                   transform: props.xys.interpolate(trans)
               }}
           >
-              <StyledImg style={{marginLeft:"50px" , marginBottom:"20px"}} src={Profile} />
-              <StyledH1 style={{marginLeft:"20px"}}>{user.username}You are logged in</StyledH1>
+              <StyledImg style={{marginLeft:"60px" , marginBottom:"20px"}} src={Profile} />
+              <StyledH1 style={{marginLeft:"20px" , color:"#0b0b25"}}>{user.username}You are logged in</StyledH1>
                 <br/><br/>
 				<StyleButton style={{marginTop:"-10px"}} type="submit" onClick={handleLogout}>LOGOUT</StyleButton>  
           </Container>
@@ -156,7 +159,7 @@ return (
         >
             <StyledImg src={Profile}/>
             <form onSubmit={handleSubmit}>
-            <StyledH1 style={{color:"#fff"}} >Login</StyledH1>
+            <StyledH1>Login</StyledH1>
                 <StyleInput 
                 type="text"
                 value={username}
@@ -170,7 +173,7 @@ return (
                 onChange={({ target }) => setPassword(target.value)}
                 />
 				<StyleButton type="submit" style={{color:"#000"}} >LOGIN</StyleButton>
-                <p style={{marginLeft:"5px" , marginTop:"10px" , color:'#fff'}}>Don't have an account ? <NavLink style={{color:"#fff"}} to="/Register" exact>Sign Up</NavLink> </p>
+                <p style={{marginLeft:"5px" , marginTop:"10px"}}>Don't have an account ? <NavLink to="/Register" exact>Sign Up</NavLink> </p>
                 </form>
         </Container>
     </MainBg>

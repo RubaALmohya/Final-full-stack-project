@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 import axios from "axios";
 import { useEffect } from "react";
+import Footer from '../../component/Footer';
 
 
 const Container = styled(animated.div)`
@@ -14,7 +15,7 @@ font-family: 'M PLUS Rounded 1c', sans-serif;
   display: inline-block;
   /* padding: 3em; */
   width:70%;
-  background: #264871;
+  background: white;
   border-radius: 10px;
   z-index: 1;
   position: relative;
@@ -29,6 +30,7 @@ padding-top: 10px;
 color: #a6a6a6;
 font-size: 10px;
 text-align: center;
+background: rgba(0,0,0,0.1);
 
 `;
 
@@ -43,14 +45,14 @@ const StyledImg = styled.img`
 const StyledH1 = styled.h1`
   line-height: 1.5;
   letter-spacing: 1.5;
-  color: white;
+  color: #264871;
   font-family: 'M PLUS Rounded 1c', sans-serif;
 `;
 
 const StyledH3 = styled.h3`
   line-height: 1.5;
   letter-spacing: 1.15;
-  color: white;
+  color: #264871;
   font-family: "Gilroy";
   font-size: 20px;
 `;
@@ -63,11 +65,13 @@ const calc = (x, y) => [
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 const MainBg = styled.div`
-  position: absolute;
+  /* position: absolute; */
   right: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
   overflow: hidden;
   background-color: #0b0b25;
   display: flex;
@@ -75,7 +79,8 @@ const MainBg = styled.div`
   align-items: center;
 `;
 
-export default function ProfilePage() {
+
+const ProfilePage = () => {
 
 
     let token = JSON.parse(localStorage.getItem('user'));
@@ -133,7 +138,7 @@ export default function ProfilePage() {
     //  console.log(data)
     const [props, set] = useSpring(() => ({ xys: [0, 0, 1] , config: config.default}))
   return (
-    
+    <div>
     <MainBg>        
         <Container
             onMouseMove={({clientX: x, clientY: y}) => (set({xys: calc(x, y)}))}
@@ -148,11 +153,15 @@ export default function ProfilePage() {
             <StyledImg src={UserIcon} />
 
             <StyledH1>{data.username}</StyledH1>
-             <p style={{color: "white"}}>  <img src={RateImg}/> Level of Satisfaction: {avg}</p> 
+             <p style={{color: "#264871"}}>  <img src={RateImg} style={{padding:'10px'}}/> Level of Satisfaction: {Math.round(avg * 100)/ 100}</p> 
             <Calender></Calender>
             <Note>Note: on a certain date colors will be shown based on your emotion. <br/> ( <BsFillSquareFill color={'#898a88'}/> Sad , <BsFillSquareFill color={'white'}/>  Neutral, <BsFillSquareFill color={'#ffe347'}/> Happy, <BsFillSquareFill color={'#b04bdb'}/> Fear, <BsFillSquareFill color={'#915a2a'}/> Disgust, <BsFillSquareFill color={'#db4b4b'}/> Angry, <BsFillSquareFill color={'#46cfd4'}/> Surprised).</Note>
         </Container>
         <br></br>
+      
     </MainBg>
+  </div>
   );
 }
+
+export default ProfilePage;

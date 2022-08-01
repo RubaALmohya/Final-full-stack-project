@@ -56,12 +56,12 @@ export default App;
 
 const Table = styled.div`
   font-family: "M PLUS Rounded 1c", sans-serif;
-  border: 2px solid black;
   padding: 8px;
   margin: 5px;
   border-radius: 9px;
   text-align: left;
   color: white;
+  background-color: #264871;
   margin-left: 50px;
   margin-right: 50px;
   .emotion {

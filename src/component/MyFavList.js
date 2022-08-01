@@ -10,7 +10,7 @@ import {
   MDBCardText,
   MDBBtn,
 } from "mdb-react-ui-kit";
-import { BsFillArchiveFill } from "react-icons/bs";
+import { AiOutlineDelete } from "react-icons/ai";
 import styled from "styled-components";
 
 const MyFavList = () => {
@@ -89,9 +89,9 @@ const deleteFav = (e) =>{
             />
              
               <MDBCardTitle>{e.Content.description}</MDBCardTitle>
-              <MDBCardText>
+              {/* <MDBCardText>
               {e.date}
-              </MDBCardText>
+              </MDBCardText> */}
               <MDBBtn
                 className="text-dark"
                 color="light"
@@ -104,7 +104,7 @@ const deleteFav = (e) =>{
               >
 
 
-                <BsFillArchiveFill size={30} color={"#0b0b25"} />
+                <AiOutlineDelete size={30} color={"#0b0b25"} />
               </MDBBtn>
 
               

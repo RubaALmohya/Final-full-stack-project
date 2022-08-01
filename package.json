@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@material/typography": "^14.0.0",
     "@mui/material": "^5.9.2",
     "@splinetool/react-spline": "^2.2.1",
     "@splinetool/runtime": "^0.9.82",
