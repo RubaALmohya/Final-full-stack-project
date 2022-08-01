@@ -16,6 +16,8 @@ Description.
 ### Website Link:
 
 ### Schema
+- ![diagram](https://user-images.githubusercontent.com/87912604/182139906-ea84f17c-3691-4560-8e9b-163976c4c5eb.png)
+
 
 ### End Points
 - [End_Points.pdf](https://github.com/RubaALmohya/Final-full-stack-project/files/9205562/End_Points.pdf)
