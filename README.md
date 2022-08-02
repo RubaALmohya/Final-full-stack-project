@@ -1,11 +1,16 @@
 # Mood Changer
 
-Description.
+Description:
+Are you angry, sad, bored, or anxious? This website will hopefully change your mood to become better.
+The main idea of Mood Changer is to display content based on person's mood, after analyzing your face (webcam picture) and recognizing which mood you are in.
 
-### Main Functionalty
--
--
--
+### Main Functionality
+- Mood Changer: display content based on your mood.
+- Facial and emotion Recognition using Deepface.
+- Add to Favourites / Remove from Favourites.
+- Register an account.
+- Login / Logout.
+- Personal profile to keep track of level of satisfaction and the different moods.
 
 ### Team members:
 - Hawra Alomani (Front end):
